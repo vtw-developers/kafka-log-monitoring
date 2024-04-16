@@ -1,0 +1,24 @@
+ide:
+  install-dir: C:/apps/projects/rest-kafka-grafana
+server:
+  port: 8070
+spring:
+  application:
+    name: shopping-mall
+  elasticsearch:
+    uris: 192.168.174.132:9200
+
+camel:
+  springboot:
+    main-run-controller: true
+    tracing: false
+    tracing-standby: false
+    backlog-tracing: false
+    routes-include-pattern: "file:${ide.install-dir}/camel-routes/*/*.yaml"
+  rest:
+    binding-mode: json
+  component:
+    kafka:
+      brokers: 192.168.174.132:9092
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer

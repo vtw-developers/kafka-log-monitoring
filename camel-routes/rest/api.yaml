@@ -1,0 +1,22 @@
+- rest:
+    get:
+      - id: api-product
+        path: /product
+        to:
+          uri: direct:product
+
+
+- rest:
+    get:
+      - id: api-cart
+        path: /cart
+        to:
+          uri: direct:product
+
+
+- rest:
+    get:
+      - id: api-order
+        path: /order
+        to:
+          uri: direct:product

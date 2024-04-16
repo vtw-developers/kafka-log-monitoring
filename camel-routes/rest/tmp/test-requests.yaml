@@ -1,0 +1,22 @@
+- from:
+    uri: timer:timer1?period=500
+    steps:
+      - log: "Timer1 start"
+#      - to:
+#          uri: rest:get:product?host=localhost:8070&queryParameters="product=TV&productType=Electronic"
+#- from:
+#    uri: timer:timer2?period=500
+#    steps:
+#      - log: "Timer2 start"
+#      - to:
+#          uri: rest:get:cart?host=localhost:8070
+#- from:
+#    uri: timer:timer3?period=700
+#    steps:
+#      - log: "Timer3 start"
+#      - to:
+#          uri: rest:get:order?host=localhost:8070
+
+
+# timer delay option
+# queryParameters option

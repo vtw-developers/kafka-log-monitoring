@@ -1,0 +1,14 @@
+- from:
+    uri: kafka:logs?groupId=logs-consumer-group
+    steps:
+      - log: ${body}
+      - to:
+          uri: elasticsearch:logging?operation=Index&indexName=request-logs
+
+
+- from:
+    uri: kafka:errors?groupId=logs-consumer-group
+    steps:
+      - log: ${body}
+      - to:
+          uri: elasticsearch:logging?operation=Index&indexName=request-logs

@@ -1,0 +1,51 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.3'
+    id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'com.vtw'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+    mavenCentral()
+}
+
+dependencyManagement {
+    imports {
+        mavenBom 'org.apache.camel.springboot:camel-spring-boot-dependencies:4.1.0'
+    }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.apache.camel.springboot:camel-spring-boot-starter'
+    implementation 'org.springframework.kafka:spring-kafka'
+    implementation 'org.apache.camel.springboot:camel-kafka-starter'
+    implementation 'org.apache.camel.springboot:camel-elasticsearch-starter'
+    implementation 'org.apache.camel.springboot:camel-rest-starter'
+    implementation 'org.apache.camel.springboot:camel-platform-http-starter'
+    implementation 'org.apache.camel.springboot:camel-http-starter'
+    implementation 'org.apache.camel.springboot:camel-jackson-starter'
+    implementation 'org.apache.camel.springboot:camel-opentelemetry-starter'
+    implementation 'org.apache.camel:camel-endpointdsl'
+    implementation 'org.apache.camel:camel-yaml-dsl'
+    implementation 'org.apache.camel:camel-debug'
+
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+bootJar {
+    enabled = false
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
