@@ -16,7 +16,7 @@
 
 - rest:
     get:
-      - id: api-order
-        path: /order
+      - id: api-book
+        path: /book
         to:
           uri: direct:product

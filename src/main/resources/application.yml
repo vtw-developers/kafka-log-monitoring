@@ -4,7 +4,7 @@ server:
   port: 8070
 spring:
   application:
-    name: shopping-mall
+    name: srtTicket
   elasticsearch:
     uris: 192.168.174.132:9200
 

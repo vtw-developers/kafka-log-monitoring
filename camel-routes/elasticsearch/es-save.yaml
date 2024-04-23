@@ -1,14 +1,6 @@
 - from:
-    uri: kafka:logs?groupId=logs-consumer-group
+    uri: kafka:{{spring.application.name}}?groupId=log-consumer-group&maxPollRecords=10&consumersCount=5
     steps:
       - log: ${body}
       - to:
-          uri: elasticsearch:logging?operation=Index&indexName=request-logs
-
-
-- from:
-    uri: kafka:errors?groupId=logs-consumer-group
-    steps:
-      - log: ${body}
-      - to:
-          uri: elasticsearch:logging?operation=Index&indexName=request-logs
+          uri: elasticsearch:log?operation=Index&indexName=request-log
